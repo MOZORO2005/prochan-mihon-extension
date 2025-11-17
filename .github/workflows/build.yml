@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
       - name: Setup JDK
         uses: actions/setup-java@v4
@@ -19,13 +19,13 @@ jobs:
           distribution: 'temurin'
 
       - name: Install Gradle
-        uses: gradle/gradle-build-action@v4
+        uses: gradle/gradle-build-action@v3
 
       - name: Build
         run: gradle assembleRelease
 
       - name: Upload APKs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: Extensions
           path: "**/build/outputs/apk/release/*.apk"
