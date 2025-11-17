@@ -2,7 +2,8 @@ name: Build Extensions
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
@@ -21,10 +22,10 @@ jobs:
         uses: gradle/gradle-build-action@v4
 
       - name: Build
-        run: gradle :assembleRelease
+        run: gradle assembleRelease
 
       - name: Upload APKs
         uses: actions/upload-artifact@v4
         with:
           name: Extensions
-          path: */build/outputs/apk/release/*.apk
+          path: "**/build/outputs/apk/release/*.apk"
